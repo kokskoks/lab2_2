@@ -35,7 +35,18 @@ public class BookKeeperTest {
 		
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void issuance_nullInvoiceRequest(){
 
-	
+		InvoiceRequest invoiceRequest = null;
+
+		bookKeeper.issuance(invoiceRequest, fakeTaxPolicy);
+
+
+	}
+
+
+
+
 
 }
