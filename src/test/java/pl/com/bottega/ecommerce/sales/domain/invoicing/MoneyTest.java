@@ -20,6 +20,16 @@ public class MoneyTest {
 
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void subtract_differentCurrencyCodes(){
+
+        Money eur = new Money(1f,"EUR");
+        Money usd = new Money(1f, "USD");
+
+        usd.subtract(eur);
+
+    }
+
     @Test
     public void compare_moneyFromDoubleAndMoneyFromBigDecimal(){
 
@@ -39,5 +49,7 @@ public class MoneyTest {
         assertThat(eur.equals(usd), is(false));
 
     }
+
+
 
 }
