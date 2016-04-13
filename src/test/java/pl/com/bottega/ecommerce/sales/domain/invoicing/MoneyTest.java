@@ -1,7 +1,12 @@
 package pl.com.bottega.ecommerce.sales.domain.invoicing;
 
 import org.junit.Test;
+import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.*;
+
 import pl.com.bottega.ecommerce.sharedkernel.Money;
+
+import java.math.BigDecimal;
 
 public class MoneyTest {
 
@@ -15,5 +20,14 @@ public class MoneyTest {
 
     }
 
+    @Test
+    public void compare_compareMoneyFromDoubleAndMoneyFromBigDecimal(){
+
+        Money doubleMoney = new Money(1.33f);
+        Money bigDecimalMoney = new Money(new BigDecimal("1.33"));
+
+        assertThat(doubleMoney.equals(bigDecimalMoney), is(true));
+
+    }
 
 }
