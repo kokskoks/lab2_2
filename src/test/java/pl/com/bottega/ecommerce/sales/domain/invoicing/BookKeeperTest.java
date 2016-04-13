@@ -28,22 +28,18 @@ public class BookKeeperTest {
 		InvoiceRequest invoiceRequest = new InvoiceRequest(clientData);
 		
 		Invoice testInvoice = bookKeeper.issuance(invoiceRequest, fakeTaxPolicy);
-		
-		assertThat(testInvoice.getGros(), is(Money.ZERO));
-		assertThat(testInvoice.getNet(), is(Money.ZERO));
+
 		assertThat(testInvoice.getItems().isEmpty(), is(true));
 		
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void issuance_nullInvoiceRequest(){
-
 		InvoiceRequest invoiceRequest = null;
-
 		bookKeeper.issuance(invoiceRequest, fakeTaxPolicy);
-
-
 	}
+
+
 
 
 
