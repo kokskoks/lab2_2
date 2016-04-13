@@ -21,12 +21,22 @@ public class MoneyTest {
     }
 
     @Test
-    public void compare_compareMoneyFromDoubleAndMoneyFromBigDecimal(){
+    public void compare_moneyFromDoubleAndMoneyFromBigDecimal(){
 
         Money doubleMoney = new Money(1.33f);
         Money bigDecimalMoney = new Money(new BigDecimal("1.33"));
 
         assertThat(doubleMoney.equals(bigDecimalMoney), is(true));
+
+    }
+
+    @Test
+    public void compare_moneyWithDifferentCurrencies(){
+
+        Money eur = new Money(1f, "EUR");
+        Money usd = new Money(1f, "USD");
+
+        assertThat(eur.equals(usd), is(false));
 
     }
 
